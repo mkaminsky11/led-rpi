@@ -73,7 +73,7 @@ for i in range(0,rows):
 #
 
 while True:
-	ser.write('on|1|2')
+	ser.write('on|1|2'.encode())
 	sleep(2)
-	ser.write('off|1|2')
+	ser.write('off|1|2'.encode())
 	sleep(2)

@@ -1,5 +1,6 @@
-#import serial
-#ser = serial.Serial('/dev/ttyACM0', 115200)
+import serial
+from time import sleep
+ser = serial.Serial('/dev/ttyACM0', 115200)
 
 # ser.write('3')
 # row | col on|off
@@ -65,4 +66,14 @@ for i in range(0,rows):
 	current_state.append(row)
 	default_state.append(row)
 
-print(arrayToSingleBlock(textToFont("Hello world!")))
+# print(arrayToSingleBlock(textToFont("Hello world!")))
+
+#
+# TESTING
+#
+
+while True:
+	ser.write('on|1|2')
+	sleep(2)
+	ser.write('off|1|2')
+	sleep(2)

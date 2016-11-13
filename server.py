@@ -1,34 +1,8 @@
-import serial
 from time import sleep
 ser = serial.Serial('/dev/ttyACM0', 115200)
 
-# ser.write('3')
-# row | col on|off
-# row: num col: pin on|off .... or .... all on .... or .... all on
-
-#
-#  6 * 30 * 3
-#
-#
-#
-#
 rows = 7
-cols = 540 # cutoffs: 0-179 180-359 360-539
-
-# !
-# -> {
-#
-#   "!": ["1","1","1","0","1"]
-#
-#
-# }
-#
-
-#def diff(newState):
-	#
-
-#def unwrap(text):
-	#
+cols = 540
 
 def arrayToSingleBlock(data):
 	text = ""
@@ -67,13 +41,3 @@ for i in range(0,rows):
 	default_state.append(row)
 
 # print(arrayToSingleBlock(textToFont("Hello world!")))
-
-#
-# TESTING
-#
-
-while True:
-	ser.write('on|1|2'.encode())
-	sleep(2)
-	ser.write('off|1|2'.encode())
-	sleep(2)

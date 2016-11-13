@@ -3,7 +3,7 @@ Raspberry Pi code for led matrix display
 
 + Python 3
 + Pip
-+ PySerial https://github.com/pyserial/pyserial/
++ WiringPi http://wiringpi.com/download-and-install/
 
 ## Setup
 + Connect arduino usb cable to RPi

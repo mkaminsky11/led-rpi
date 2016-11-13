@@ -1,5 +1,4 @@
 from time import sleep
-ser = serial.Serial('/dev/ttyACM0', 115200)
 
 rows = 7
 cols = 540

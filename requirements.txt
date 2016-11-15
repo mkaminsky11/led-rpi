@@ -1,1 +1,5 @@
 pyserial
+bitarray
+spidev
+wiringpi2
+flask

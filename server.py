@@ -59,7 +59,6 @@ def send(lines):
 #
 # TESTING
 #
-#
 
 '''
 lines = font.normalLines(font.arrayToLines(font.textToFont("❤ ►" * 1)), 575)

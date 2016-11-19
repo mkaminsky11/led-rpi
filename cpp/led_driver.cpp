@@ -8,11 +8,19 @@
 using namespace std;
 
 /* Constants */
-int * data;
+char * data;
 int a_totalShiftRegisters = 72;
 static const int CHANNEL = 1;
 
 /* Helpers */
+int getRegisterPin(int outputPin) {
+  return outputPin % 8;
+}
+
+int getRegisterNumber(int outputPin) {
+  return outputPin / 8;
+}
+
 void set(int outputPin) {
   int registerPin = getRegisterPin(outputPin);
   int registerNumber = getRegisterNumber(outputPin);
@@ -25,19 +33,11 @@ void clear(int outputPin) {
   bitClear(data[registerNumber], registerPin);
 }
 
-int getRegisterPin(int outputPin) {
-  return outputPin % 8;  
-}
-
-int getRegisterNumber(int outputPin) {
-  return outputPin / 8;  
-}
-
 int main()
 {
 	cout << "Starting up!" << endl;
-	data = new int[a_totalShiftRegisters]();
-	int dataSize = a_totalShiftRegisters * sizeof(int);
+	data = new char[a_totalShiftRegisters]();
+	int dataSize = a_totalShiftRegisters * sizeof(char);
 
 	fd = wiringPiSPISetup(CHANNEL, 500000);
 	cout << "Init result: " << fd << endl;

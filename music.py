@@ -11,9 +11,9 @@ def getData():
 	if len(data["songs"]) > 0:
 		title = data["songs"][0]
 	song_complete_per = 100 * (data["elapsed_time"] / data["song_duration"])
-	playlist_info = "■   0 songs (0 mins)" # 3 spaces
+	playlist_info = "|| 0 songs (0 mins)" # 3 spaces
 	if data["playing"] == True:
-		playlist_info = "►   " + str(data["playlist_length"]) + " songs (" + str(int(data["playlist_duration"] / 60)) + " mins)"
+		playlist_info = ">   " + str(data["playlist_length"]) + " songs (" + str(int(data["playlist_duration"] / 60)) + " mins)"
 
 
 	if data["playing"] == False and len(data["songs"]) == 0:

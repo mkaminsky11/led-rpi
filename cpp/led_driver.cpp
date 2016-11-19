@@ -10,7 +10,7 @@ using namespace std;
 /* Constants */
 unsigned char * data;
 int a_totalShiftRegisters = 72;
-static const int CHANNEL = 1;
+static const int CHANNEL = 0;
 
 /* Helpers */
 int getRegisterPin(int outputPin) {

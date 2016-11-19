@@ -2,13 +2,13 @@
 
 #include <iostream>
 #include <errno.h>
-#include <wiringPiSPI.h>
+// #include <wiringPiSPI.h>
 #include <unistd.h>
 
 using namespace std;
 
 /* Constants */
-char * data;
+unsigned char * data;
 int a_totalShiftRegisters = 72;
 static const int CHANNEL = 1;
 
@@ -24,22 +24,22 @@ int getRegisterNumber(int outputPin) {
 void set(int outputPin) {
   int registerPin = getRegisterPin(outputPin);
   int registerNumber = getRegisterNumber(outputPin);
-  bitSet(data[registerNumber], registerPin);
+  data[registerNumber] |= 1 << registerPin;
 }
 
 void clear(int outputPin) {
   int registerPin = getRegisterPin(outputPin);
   int registerNumber = getRegisterNumber(outputPin);
-  bitClear(data[registerNumber], registerPin);
+  data[registerNumber] &= ~(1 << registerPin);
 }
 
 int main()
 {
 	cout << "Starting up!" << endl;
-	data = new char[a_totalShiftRegisters]();
-	int dataSize = a_totalShiftRegisters * sizeof(char);
+	data = new unsigned char[a_totalShiftRegisters]();
+	int dataSize = a_totalShiftRegisters * sizeof(unsigned char);
 
-	fd = wiringPiSPISetup(CHANNEL, 500000);
+	int fd = wiringPiSPISetup(CHANNEL, 500000);
 	cout << "Init result: " << fd << endl;
 
 	// Reset pin state

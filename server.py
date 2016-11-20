@@ -33,7 +33,7 @@ def send(lines):
 	
 def sendCol(col, state):
 	if rpi:
-		print("sending col")
+		#print("sending col")
 		ser.write(("C" + str(col) + "\n"+ str(state) + "E").encode())
 
 

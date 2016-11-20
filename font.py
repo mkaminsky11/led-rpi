@@ -59,3 +59,6 @@ def simulate(lines):
 		print(" ".join(l[180:360].split("0")))
 	for l in lines[::-1]:
 		print(" ".join(l[360:540].split("0")))
+
+def blank():
+	return ["","","","","","",""]

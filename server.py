@@ -41,6 +41,16 @@ store_title = ""
 store_playlist = ""
 store_per = 0
 
+ip_addr = ip.get()
+line_1  = font.normalLines(font.arrayToLines(font.textToFont(ip_addr)), 191)
+line_2  = font.normalLines(font.arrayToLines(font.textToFont("FUCK, THIS TOOK WORK")), 192)
+line_3  = font.normalLines(font.arrayToLines(font.textToFont("WOAH PUTZ!")), 191)
+
+lines = font.normalLines(font.join3Rows(line_1,line_2,line_3), 575)
+send(lines)
+
+sleep(5)
+
 while True:
 	music_data = music.getData()
 

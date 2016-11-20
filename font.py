@@ -7,6 +7,15 @@ def arrayToLines(data):
 		ret.append(text)
 	return ret[::-1]
 
+def arrayRev(data):
+	ret = []
+	for i in range(0,7):
+		text = ""
+		for item in data:
+			text = text + item[i]
+		ret.append(text)
+	return ret
+
 def textToFont(text):
 	ret = []
 	for char in text:

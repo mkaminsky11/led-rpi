@@ -19,6 +19,7 @@ if rpi:
 	ser = serial.Serial('/dev/ttyACM0', 9600)
 
 def send(lines):
+	print(lines)
 	if rpi:
 		print("printing")
 		ser.write("S".encode())

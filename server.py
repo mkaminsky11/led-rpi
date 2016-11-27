@@ -19,23 +19,21 @@ if rpi:
 	ser = serial.Serial('/dev/ttyACM0', 9600)
 
 def send(lines):
-	print(lines)
-	if rpi:
-		print("printing")
-		ser.write("S".encode())
+	#print(lines)
+	#font.simulate(lines)
+	print("printing")
+	ser.write("S".encode())
 	for i in range(0,7):
 		l = lines[i][::-1]
+		#print(len(l))
 		if i < 6:
 			l = l + "\n"
-		if rpi:
-			ser.write(l.encode())
-	if rpi:
-		ser.write("E".encode())
+		ser.write(l.encode())
+	ser.write("E".encode())
 	
 def sendCol(col, state):
-	if rpi:
-		#print("sending col")
-		ser.write(("C" + str(col) + "\n"+ str(state) + "E").encode())
+	#print("sending col")
+	ser.write(("C" + str(col) + "\n"+ str(state) + "E").encode())
 
 
 store_title = ""
@@ -48,6 +46,9 @@ line_2  = font.normalLines(font.arrayToLines(font.textToFont("FUCK, THIS TOOK WO
 line_3  = font.normalLines(font.arrayToLines(font.textToFont("WOAH PUTZ!")), 191)
 
 lines = font.normalLines(font.join3Rows(line_1,line_2,line_3), 575)
+
+sleep(5)
+
 send(lines)
 
 sleep(5)
@@ -60,6 +61,9 @@ while True:
 	per = music_data["per"] # % done
 
 	if title != store_title:
+		#print(title)
+		#print(playlist)
+		#print(per)
 		title_lines = font.normalLines(font.arrayToLines(font.textToFont(title)), 191)
 		playlist_lines = font.normalLines(font.arrayToLines(font.textToFont(playlist)), 192)
 		length_lines = font.normalLines(generator.makeBar(per, 192),192)

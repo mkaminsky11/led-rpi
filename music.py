@@ -19,7 +19,7 @@ def getData():
 		playlist_info = ">   " + str(data["playlist_length"]) + " songs (" + str(int(data["playlist_duration"] / 60)) + " mins)"
 
 
-	if data["playing"] == False and len(data["songs"]) == 0:
+	if len(data["songs"]) == 0:
 		# nothing playing
 		return {
 			"song": "Nothing queued...",

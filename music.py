@@ -15,7 +15,7 @@ def getData():
 	if data["song_duration"] != 0:
 		song_complete_per = 100 * (data["elapsed_time"] / data["song_duration"])
 	playlist_info = "|| 0 songs (0 mins)" # 3 spaces
-	if data["playing"] == True:
+	if data["playlist_length"] != 0:
 		playlist_info = ">   " + str(data["playlist_length"]) + " songs (" + str(int(data["playlist_duration"] / 60)) + " mins)"
 
 
@@ -24,7 +24,7 @@ def getData():
 		return {
 			"song": "Nothing queued...",
 			"per": 0,
-			"playlist": "kmichael and shreyask"
+			"playlist": "kmichael, shreyask, masonray"
 		}
 
 	return {

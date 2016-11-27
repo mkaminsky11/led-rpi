@@ -24,6 +24,8 @@ def send(lines):
 	print("printing")
 	ser.write("S".encode())
 	lines = lines[::-1]
+	print(len(lines))
+	print(lines)
 	for i in range(0,7):
 		l = lines[i]
 		if i < 6:
@@ -100,7 +102,7 @@ while True:
 			for i in range(188 - new_num_bars, 188 - old_num_bars):
 				# add i
 				sendCol(i, 1)
-			store_title = title
+		store_title = title
 		store_playlist = playlist
 		store_per = per
 		# ok...keep going I guess

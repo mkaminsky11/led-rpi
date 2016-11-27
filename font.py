@@ -28,7 +28,7 @@ def textToFont(text):
 	return ret
 
 
-led = open('normalfont','r').read().strip().split("\n")
+led = open('/home/pi/Github/led-rpi/normalfont','r').read().strip().split("\n")
 ledFont = {}
 for line in led:
 	line = line.split(" ")

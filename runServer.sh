@@ -1,5 +1,5 @@
 #!/bin/sh
 cd /
 cd home/pi/Github/led-rpi
-python3 server.py &
+sudo python3 server.py start
 cd /

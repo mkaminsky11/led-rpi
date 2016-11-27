@@ -19,6 +19,22 @@ import font
 import generator
 import ip
 import music
+
+def send(lines):
+	print("printing")
+	ser.write("S".encode())
+	lines = lines[::-1]
+	for i in range(0,7):
+		l = lines[i]
+		if i < 6:
+			l = l + "\n"
+			ser.write(l.encode())
+	ser.write("E".encode())
+	
+def sendCol(col, state):
+	col = 575 - col
+	ser.write(("C" + str(col) + "\n"+ str(state) + "E").encode())
+
  
 rpi = True
 ser = None
@@ -90,18 +106,3 @@ while True:
 		# ok...keep going I guess
 
 	sleep(3)
-
-def send(lines):
-	print("printing")
-	ser.write("S".encode())
-	lines = lines[::-1]
-	for i in range(0,7):
-		l = lines[i]
-		if i < 6:
-			l = l + "\n"
-			ser.write(l.encode())
-	ser.write("E".encode())
-	
-def sendCol(col, state):
-	col = 575 - col
-	ser.write(("C" + str(col) + "\n"+ str(state) + "E").encode())

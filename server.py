@@ -23,8 +23,9 @@ def send(lines):
 	#font.simulate(lines)
 	print("printing")
 	ser.write("S".encode())
+	lines = lines[::-1]
 	for i in range(0,7):
-		l = lines[i][::-1]
+		l = lines[i]
 		#print(len(l))
 		if i < 6:
 			l = l + "\n"
@@ -32,6 +33,7 @@ def send(lines):
 	ser.write("E".encode())
 	
 def sendCol(col, state):
+	col = 575 - col
 	#print("sending col")
 	ser.write(("C" + str(col) + "\n"+ str(state) + "E").encode())
 
@@ -54,20 +56,31 @@ while ip_addr == "127.0.0.1":
 	sleep(2)
 send(lines)
 
-sleep(10)
+print("waiting")
+
+sleep(5)
+
+print("done waiting")
 
 while True:
 	music_data = music.getData()
 
+	#print(music_data)
+
 	title = music_data["song"]
 	playlist = music_data["playlist"]
 	per = music_data["per"] # % done
+	
+	#print("checking")
 
 	if title != store_title:
 		#print(title)
 		#print(playlist)
 		#print(per)
-		title_lines = font.normalLines(font.arrayToLines(font.textToFont(title)), 191)
+
+		#print(":)")
+
+		title_lines = font.normalLines(font.arrayToLines(font.textToFont(title)), 192)
 		playlist_lines = font.normalLines(font.arrayToLines(font.textToFont(playlist)), 192)
 		length_lines = font.normalLines(generator.makeBar(per, 192),192)
 		lines = font.normalLines(font.join3Rows(title_lines,playlist_lines,length_lines), 575)

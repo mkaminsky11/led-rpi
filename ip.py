@@ -8,4 +8,4 @@ def get():
 	for r in ret:
 		if "18" in r: # mit ip address and stuff
 			_ip.append(r)
-	return " ".join(ip)
+	return " ".join(_ip)

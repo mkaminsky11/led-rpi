@@ -82,8 +82,8 @@ while True:
 
 		title_lines = font.normalLines(font.arrayToLines(font.textToFont(title)), 192)
 		playlist_lines = font.normalLines(font.arrayToLines(font.textToFont(playlist)), 192)
-		length_lines = font.normalLines(generator.makeBar(per, 193),192)
-		lines = font.normalLines(font.join3Rows(title_lines,playlist_lines,length_lines), 575)
+		length_lines = font.normalLines(generator.makeBar(per, 192),192)
+		lines = font.normalLines(font.join3Rows(title_lines,playlist_lines,length_lines), 576)
 		send(lines)
 	#else:
 		#

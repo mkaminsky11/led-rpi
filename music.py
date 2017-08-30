@@ -1,7 +1,6 @@
 import json
 from urllib.request import urlopen
 
-#jsonPath = 'http://nr.mit.edu/audio/json/controls_update'
 jsonPath = 'http://nr.mit.edu/audio/json/controls_update/'
 
 def getData():
